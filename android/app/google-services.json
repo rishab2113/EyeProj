@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "34951190910",
+    "firebase_url": "https://stepify-solutions.firebaseio.com",
+    "project_id": "stepify-solutions",
+    "storage_bucket": "stepify-solutions.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34951190910:android:98eee2a90ae27bab",
+        "android_client_info": {
+          "package_name": "com.example.testproj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34951190910-7er215bdfnjgg8ve94ps43ecjqgfcn3u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.testproj",
+            "certificate_hash": "0408a802d101231e2f229ad0994a3ab19d4ce3bc"
+          }
+        },
+        {
+          "client_id": "34951190910-n8am848f6n5fgls3u4kk8fvsuufnqqa3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ_oCfwqpHCS0U8YmlIjDzKCr06mhsjFU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34951190910-n8am848f6n5fgls3u4kk8fvsuufnqqa3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "34951190910-orsrl2im79u0e2lr779om3pfj1v4fl7j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.testproj"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
