@@ -9,6 +9,9 @@ import 'package:flutter_text_to_speech/flutter_text_to_speech.dart';
 import 'package:testproj/detector_painters.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 void main() => runApp(MaterialApp(home: _MyHomePage()));
 
@@ -25,14 +28,41 @@ class _MyHomePageState extends State<_MyHomePage> {
   RecognitionController speechRecognition;
   bool isListening = false;
   TextEditingController _controllerText = new TextEditingController();
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void initState() {
     super.initState();
+    _testSignInWithGoogle()
+    .then((user) => print(user)).catchError((e) => print(e));
     _initializeCamera();
     _initSpeechRecognition();
     _initTextToSpeech();
   }
+
+  Future<String> _testSignInWithGoogle() async {
+    
+    FirebaseUser user;
+    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    user = await _auth.signInWithCredential(credential);
+    assert(user.email != null);
+    assert(user.displayName != null);
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(user.uid == currentUser.uid);
+
+    return 'signInWithGoogle succeeded: $user';
+  }
+
 
   void _initializeCamera() async {
     List<FirebaseCameraDescription> cameras = await camerasAvailable();
